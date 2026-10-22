@@ -104,6 +104,31 @@ Paste any of these into a box. Short ones scan fastest.
 - Clocks go in circles. So do people who scan watches. Welcome back.
 - Stop checking. It's not going to get any later. It is, actually, but still.
 
+**Very dumb**
+
+- You suck.
+- That's what she said.
+- Your momma.
+- Your momma told me the time.
+- Nice phone. Shame about the face.
+- It's time you went home.
+- Time to get a life.
+- No.
+- lol
+- Still waiting? Same.
+- The time is: you scanned a watch. Think about your choices.
+- You smell like someone who scans watches.
+- Scanned by a loser. Hi.
+- The time is on the wall, genius.
+- Skill issue.
+- Your fly is down.
+- Sorry, wrong wrist.
+- Wow, you fell for that.
+- Your momma is a QR code.
+- You've been QR'd. Tell your friends. Or don't, they already know.
+- Instructions unclear, scanned a watch.
+- Unsubscribe.
+
 **The classic**
 
 A box can hold a URL, and phone cameras offer to open it with one tap. Put this in a slot:
