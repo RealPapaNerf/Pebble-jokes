@@ -35,7 +35,19 @@ feature removed and a settings page you can actually delete things from.
 Shorter text makes a chunkier, easier-to-scan code. Under about 60 characters is
 ideal on the 144 px screens; the hard limit is 230.
 
-## Building
+## Installing
+
+You don't need to build anything yourself. Every push builds the app on GitHub Actions:
+
+1. Open the repo's **Actions** tab, click the latest green **Build** run.
+2. Under **Artifacts**, download `qr-jokes-pbw` and unzip it to get `qr-jokes.pbw`.
+3. Get that file onto your phone (AirDrop, email it to yourself, Google Drive, USB) and
+   open it. The Pebble app recognises `.pbw` files and installs the app on the watch.
+   On Android, you can also open the file from the Files app and pick Pebble.
+
+Pushing a tag like `v3.0.0` also attaches the `.pbw` to a GitHub release.
+
+## Building yourself
 
 You need the Pebble tooling (`pebble-tool`, maintained by Core Devices / Rebble) and Node.
 
