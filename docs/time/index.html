@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checking Time</title>
+<meta name="description" content="Please hold while the watch works out what time it is.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <div class="card">
+    <span class="badge">Time request received</span>
+    <h1 id="title">Checking the time…</h1>
+    <div class="bar"><div id="fill"></div></div>
+    <p class="muted" id="status">Contacting the watch</p>
+    <div id="result" hidden>
+      <div class="time" id="clock">--:--</div>
+      <p id="punch"></p>
+      <div class="row">
+        <a class="btn primary" href="../">Show me a joke instead</a>
+        <a class="btn" href="../sub/">Unsubscribe</a>
+      </div>
+    </div>
+  </div>
+  <footer>Accurate to within one of your momma's naps.</footer>
+</main>
+<script>
+(function () {
+  var steps = [
+    'Contacting the watch',
+    'The watch is thinking',
+    'Consulting the sun',
+    'Asking your momma',
+    'Your momma is still talking',
+    'Rounding to the nearest now',
+    'Double checking against a broken clock',
+    'Almost there. Not really.'
+  ];
+  var punchlines = [
+    "You could have just asked.",
+    "Your phone had this the whole time. You were holding it.",
+    "That's the time. Your momma's time is about an hour behind.",
+    "Was it worth it? Be honest.",
+    "A broken watch would have been faster twice today.",
+    "This is also what time it is at your momma's house. She's expecting you."
+  ];
+  var fill = document.getElementById('fill');
+  var status = document.getElementById('status');
+  var i = 0;
+  var total = steps.length;
+
+  function tick() {
+    if (i < total) {
+      status.textContent = steps[i] + '…';
+      fill.style.width = Math.round(((i + 1) / (total + 1)) * 100) + '%';
+      i++;
+      setTimeout(tick, 700 + Math.random() * 500);
+    } else {
+      fill.style.width = '100%';
+      finish();
+    }
+  }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function finish() {
+    var now = new Date();
+    document.getElementById('title').textContent = 'The time is';
+    status.hidden = true;
+    document.querySelector('.bar').hidden = true;
+    document.getElementById('clock').textContent = pad(now.getHours()) + ':' + pad(now.getMinutes());
+    document.getElementById('punch').textContent = punchlines[Math.floor(Math.random() * punchlines.length)];
+    document.getElementById('result').hidden = false;
+  }
+  tick();
+})();
+</script>
+</body>
+</html>

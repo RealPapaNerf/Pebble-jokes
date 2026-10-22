@@ -58,6 +58,7 @@ Layout:
 | `src/pkjs/index.js` | Phone side: stores the texts, encodes QR codes, skips empty slots |
 | `src/pkjs/config.js` | The settings page definition (eight text boxes) |
 | `src/pkjs/qrencode.js` | [libqrencode-js](https://github.com/lymar/libqrencode-js), unchanged |
+| `docs/` | The joke website for GitHub Pages (see below) |
 
 ## Joke ideas
 
@@ -104,6 +105,35 @@ Paste any of these into a box. Short ones scan fastest.
 - Clocks go in circles. So do people who scan watches. Welcome back.
 - Stop checking. It's not going to get any later. It is, actually, but still.
 
+**Your momma, plus time**
+
+- Your momma told me the time. Then she told me again. She's right twice a day.
+- Your momma is so old she asked this watch for the time and it said "before".
+- Your momma is so slow this watch finished loading before she did.
+- Your momma is so big she's in two time zones.
+- Your momma is so old her watch is a sundial.
+- Your momma called. She wants to know the time too.
+- Your momma set this watch. That's why it's a QR code.
+- It's your momma o'clock.
+- Your momma said it's past your bedtime.
+- Your momma is so late she's the reason this watch stopped trying.
+- Your momma is so old she remembers when this watch told the time.
+- Your momma is the time now.
+
+**Subscribed to something they didn't want**
+
+- You are now subscribed to Wrist Facts. Reply STOP to receive more Wrist Facts.
+- Thanks for subscribing to Hourly Time Updates! First update: it's now.
+- Subscription confirmed: Your Momma Daily. Unsubscribe is not available.
+- Welcome to the newsletter. There is no newsletter. There is no unsubscribe.
+- You have been added to this watch's mailing list. The watch has no email.
+- Your free trial of Knowing The Time has started. Trial ends: now.
+- Reply STOP to stop. Reply START to stop. Replies do nothing.
+- Your subscription to Jokes On You has auto-renewed.
+- Msg & data rates may apply. They apply to your momma.
+- You are now following this wrist. Unfollow by walking away.
+- Your 30-day trial of Time has expired. Renew at your momma's house.
+
 **Very dumb**
 
 - You suck.
@@ -140,6 +170,31 @@ https://youtu.be/dQw4w9WgXcQ
 Use the short `youtu.be` form: it makes a 25x25 code with 5 px modules on the watch,
 which scans from arm's length. Pair it with a text slot right before it, such as
 "Scan the next one for the actual time", then press Down.
+
+## The joke website
+
+The `docs/` folder is a small static site for GitHub Pages. Point a QR code at a
+page instead of plain text and the scanner's phone opens a web page.
+
+Turn it on once: GitHub repo **Settings → Pages → Build and deployment →
+Source: Deploy from a branch → Branch: `main`, folder `/docs` → Save**. A minute
+later the site is live at `https://realpapanerf.github.io/Pebble-jokes/`.
+
+Pages you can point a QR code at (each is a 29x29 code, 4 px modules on the watch):
+
+| Put this in a settings box | What the scanner gets |
+| --- | --- |
+| `https://realpapanerf.github.io/Pebble-jokes/` | A random joke, with an "Another one" button |
+| `https://realpapanerf.github.io/Pebble-jokes/?13` | Joke number 13 (numbers are positions in `docs/jokes.js`) |
+| `https://realpapanerf.github.io/Pebble-jokes/time/` | A fake "checking the time…" progress bar that stalls on "Asking your momma", then shows the real time and "You could have just asked." |
+| `https://realpapanerf.github.io/Pebble-jokes/sub/` | A subscription confirmation they never asked for. Every tap of Unsubscribe adds another subscription. |
+
+So eight watch slots could be, say, three text jokes, `?14`, `?26`, `time/`, `sub/`
+and the rickroll.
+
+To add jokes to the site, append to the array in `docs/jokes.js`. Only ever add to
+the end: the number in a URL is the joke's position, and reordering would change
+what existing QR codes show.
 
 ## Credits
 

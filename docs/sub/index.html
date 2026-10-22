@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subscription Confirmed</title>
+<meta name="description" content="You are now subscribed. You did not ask to be.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <div class="card">
+    <span class="badge">Subscription confirmed</span>
+    <h1 id="title">You're in!</h1>
+    <p>By scanning a wrist you have agreed to receive the following:</p>
+    <ul class="subs" id="subs"></ul>
+    <p class="muted" id="note">Frequency: whenever. Delivery: this page. To stop, tap Unsubscribe.</p>
+    <div class="row">
+      <button class="btn primary" id="unsub" type="button">Unsubscribe</button>
+      <a class="btn" href="../">Read a joke</a>
+    </div>
+  </div>
+  <footer>Msg &amp; data rates may apply. They apply to your momma.</footer>
+</main>
+<script>
+(function () {
+  var extras = [
+    'Your Momma Daily',
+    'Hourly Time Updates',
+    'Jokes On You Premium',
+    'Watch Fax',
+    'The Unsubscribe Newsletter',
+    'Sundial Enthusiasts Quarterly',
+    'Reply STOP Digest',
+    'Wrist Facts: After Dark',
+    'Your Momma Daily (Weekend Edition)',
+    'That\'s What She Said Alerts',
+    'Broken Clock Accuracy Reports',
+    'You Suck Weekly'
+  ];
+  var notes = [
+    'Unsubscribe failed. As an apology, we added one more.',
+    'Unsubscribe successful. From unsubscribing.',
+    'You have been subscribed to Unsubscribe.',
+    'Request noted. Request ignored.',
+    'Your momma also tried to unsubscribe. She is still here.',
+    'Unsubscribing is a premium feature. You are not premium.',
+    'STOP received. STOP has been added to your subscriptions.',
+    'Tap again to confirm you want more.'
+  ];
+  var list = document.getElementById('subs');
+  var note = document.getElementById('note');
+  var title = document.getElementById('title');
+  var count = 0;
+
+  function add(name) {
+    var li = document.createElement('li');
+    var a = document.createElement('span'); a.textContent = name;
+    var b = document.createElement('span'); b.textContent = 'Active';
+    li.appendChild(a); li.appendChild(b);
+    list.appendChild(li);
+  }
+  add('Wrist Facts (daily)');
+
+  document.getElementById('unsub').addEventListener('click', function () {
+    add(extras[count % extras.length]);
+    note.textContent = notes[count % notes.length];
+    count++;
+    if (count === 3) title.textContent = "You're really in!";
+    if (count === 6) title.textContent = 'Please stop tapping';
+    if (count >= 9) title.textContent = 'Subscribed for life';
+    if (count === extras.length) {
+      this.textContent = 'Unsubscribe (does nothing)';
+    }
+  });
+})();
+</script>
+</body>
+</html>

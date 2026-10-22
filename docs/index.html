@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watch Says</title>
+<meta name="description" content="You scanned a watch. Here is what it had to say.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <div class="card">
+    <span class="badge">Scanned from a wrist</span>
+    <p class="muted" id="counter">Message</p>
+    <div class="joke" id="joke">…</div>
+    <div class="row">
+      <button class="btn primary" id="another" type="button">Another one</button>
+      <a class="btn" href="time/">Just tell me the time</a>
+      <a class="btn" href="sub/">Unsubscribe</a>
+    </div>
+  </div>
+  <footer>You could have just asked.</footer>
+</main>
+<script src="jokes.js"></script>
+<script>
+(function () {
+  var jokes = window.JOKES || [];
+  var jokeEl = document.getElementById('joke');
+  var counterEl = document.getElementById('counter');
+
+  function requested() {
+    var raw = (location.search || location.hash).replace(/^[?#]/, '');
+    var n = parseInt(raw, 10);
+    return n >= 1 && n <= jokes.length ? n : 0;
+  }
+  function show(n) {
+    jokeEl.textContent = jokes[n - 1];
+    counterEl.textContent = 'Message ' + n + ' of ' + jokes.length;
+    try { history.replaceState(null, '', '?' + n); } catch (e) {}
+  }
+  function random(except) {
+    if (jokes.length < 2) return 1;
+    var n;
+    do { n = 1 + Math.floor(Math.random() * jokes.length); } while (n === except);
+    return n;
+  }
+
+  var current = requested() || random(0);
+  show(current);
+  document.getElementById('another').addEventListener('click', function () {
+    current = random(current);
+    show(current);
+  });
+})();
+</script>
+</body>
+</html>
