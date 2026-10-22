@@ -184,10 +184,12 @@ Pages you can point a QR code at (each is a 29x29 code, 4 px modules on the watc
 
 | Put this in a settings box | What the scanner gets |
 | --- | --- |
-| `https://realpapanerf.github.io/Pebble-jokes/` | A random joke, with an "Another one" button |
+| `https://realpapanerf.github.io/Pebble-jokes/` | A random joke and a big **Tap to see the time** button. The button is the rickroll. |
 | `https://realpapanerf.github.io/Pebble-jokes/?13` | Joke number 13 (numbers are positions in `docs/jokes.js`) |
-| `https://realpapanerf.github.io/Pebble-jokes/time/` | A fake "checking the time…" progress bar that stalls on "Asking your momma", then shows the real time and "You could have just asked." |
+| `https://realpapanerf.github.io/Pebble-jokes/time/` | A fake "checking the time…" progress bar that stalls on "Asking your momma", then a **Tap to reveal the time** button. Also the rickroll. |
 | `https://realpapanerf.github.io/Pebble-jokes/sub/` | A subscription confirmation they never asked for. Every tap of Unsubscribe adds another subscription. |
+
+The full bit: scan the code, land on the site, tap to see the time, get rickrolled.
 
 So eight watch slots could be, say, three text jokes, `?14`, `?26`, `time/`, `sub/`
 and the rickroll.

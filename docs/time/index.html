@@ -18,7 +18,10 @@
       <div class="time" id="clock">--:--</div>
       <p id="punch"></p>
       <div class="row">
-        <a class="btn primary" href="../">Show me a joke instead</a>
+        <a class="btn primary" href="https://youtu.be/dQw4w9WgXcQ">Tap to reveal the time</a>
+      </div>
+      <div class="row">
+        <a class="btn" href="../">Show me a joke instead</a>
         <a class="btn" href="../sub/">Unsubscribe</a>
       </div>
     </div>
@@ -38,12 +41,11 @@
     'Almost there. Not really.'
   ];
   var punchlines = [
-    "You could have just asked.",
-    "Your phone had this the whole time. You were holding it.",
-    "That's the time. Your momma's time is about an hour behind.",
-    "Was it worth it? Be honest.",
-    "A broken watch would have been faster twice today.",
-    "This is also what time it is at your momma's house. She's expecting you."
+    "Time located. It is hidden for your safety.",
+    "Found it. Your momma said not to show you without tapping.",
+    "The time is ready. Are you?",
+    "Verified against a broken clock. Twice.",
+    "Encrypted. Tap to decrypt."
   ];
   var fill = document.getElementById('fill');
   var status = document.getElementById('status');
@@ -61,13 +63,11 @@
       finish();
     }
   }
-  function pad(n) { return (n < 10 ? '0' : '') + n; }
   function finish() {
-    var now = new Date();
-    document.getElementById('title').textContent = 'The time is';
+    document.getElementById('title').textContent = 'Time found';
     status.hidden = true;
     document.querySelector('.bar').hidden = true;
-    document.getElementById('clock').textContent = pad(now.getHours()) + ':' + pad(now.getMinutes());
+    document.getElementById('clock').textContent = '\u2022\u2022:\u2022\u2022';
     document.getElementById('punch').textContent = punchlines[Math.floor(Math.random() * punchlines.length)];
     document.getElementById('result').hidden = false;
   }
