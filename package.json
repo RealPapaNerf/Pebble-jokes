@@ -1,0 +1,64 @@
+{
+  "name": "qr-jokes",
+  "version": "3.0.0",
+  "author": "RealPapaNerf",
+  "private": true,
+  "dependencies": {
+    "pebble-clay": "^1.0.4"
+  },
+  "keywords": [
+    "pebble-app"
+  ],
+  "pebble": {
+    "displayName": "QR Jokes",
+    "uuid": "9314647d-994a-4d88-9ef8-9caefcf3efa4",
+    "sdkVersion": "3",
+    "projectType": "native",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk",
+      "diorite",
+      "emery"
+    ],
+    "watchapp": {
+      "watchface": false,
+      "hiddenApp": false,
+      "onlyShownOnCommunication": false
+    },
+    "capabilities": [
+      "configurable"
+    ],
+    "messageKeys": {
+      "qrcode": 0,
+      "fetch": 1,
+      "description": 2,
+      "id": 3,
+      "direction": 4
+    },
+    "resources": {
+      "media": [
+        {
+          "memoryFormat": "1Bit",
+          "menuIcon": true,
+          "type": "bitmap",
+          "name": "IMAGE_MENU_ICON",
+          "file": "images/logo.png"
+        },
+        {
+          "type": "raw",
+          "name": "DISCONNECTED_IMAGE",
+          "file": "images/disconnected.pdc"
+        }
+      ],
+      "publishedMedia": [
+        {
+          "name": "LOGO",
+          "id": 0,
+          "glance": "IMAGE_MENU_ICON"
+        }
+      ]
+    }
+  }
+}
