@@ -1,0 +1,48 @@
+name: Build
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install the Pebble tool and SDK
+        run: |
+          pip install pebble-tool
+          pebble sdk install latest
+
+      - name: Install JS dependencies (Clay)
+        run: npm install
+
+      - name: Build
+        run: pebble build
+
+      - name: List output
+        run: ls -la build/*.pbw
+
+      - name: Upload .pbw
+        uses: actions/upload-artifact@v4
+        with:
+          name: qr-jokes-pbw
+          path: build/*.pbw
+          if-no-files-found: error
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/*.pbw
