@@ -104,7 +104,17 @@ Paste any of these into a box. Short ones scan fastest.
 - Clocks go in circles. So do people who scan watches. Welcome back.
 - Stop checking. It's not going to get any later. It is, actually, but still.
 
-A box can also hold a URL, so one slot can send the scanner to a web page instead.
+**The classic**
+
+A box can hold a URL, and phone cameras offer to open it with one tap. Put this in a slot:
+
+```
+https://youtu.be/dQw4w9WgXcQ
+```
+
+Use the short `youtu.be` form: it makes a 25x25 code with 5 px modules on the watch,
+which scans from arm's length. Pair it with a text slot right before it, such as
+"Scan the next one for the actual time", then press Down.
 
 ## Credits
 
